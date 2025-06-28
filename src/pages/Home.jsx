@@ -1,9 +1,8 @@
 import EventCard from "../components/EventCard";
 import { useEvents } from "../hooks/useEvents";
-import React, { useState } from "react";
 
 export default function Home() {
-  const [events, setEvents] = useEvents();
+  const { events, setEvents } = useEvents();
 
   const handleBookmark = (id) => {
     setEvents((prev) =>
@@ -18,15 +17,18 @@ export default function Home() {
   };
 
   return (
-    <div className="p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {events.map((event) => (
-        <EventCard
-          key={event.id}
-          event={event}
-          onBookmark={() => handleBookmark(event.id)}
-          onAttend={() => handleAttend(event.id)}
-        />
-      ))}
-    </div>
+    <>
+      <h1 className="justify-center text-bold flex">Discover</h1>
+      <div className="p-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {events.map((event) => (
+          <EventCard
+            key={event.id}
+            event={event}
+            onBookmark={() => handleBookmark(event.id)}
+            onAttend={() => handleAttend(event.id)}
+          />
+        ))}
+      </div>
+    </>
   );
 }
