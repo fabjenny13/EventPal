@@ -1,16 +1,18 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { dummyEvents } from "../data/dummyEvents";
-
-const LOCAL_STORAGE_KEY = "events";
 
 export const useEvents = () => {
   const [events, setEvents] = useState(() => {
-    const stored = localStorage.getItem(LOCAL_STORAGE_KEY);
-    return stored ? JSON.parse(stored) : dummyEvents;
+    try {
+      const stored = JSON.parse(localStorage.getItem("events"));
+      return Array.isArray(stored) ? stored : dummyEvents;
+    } catch {
+      return dummyEvents;
+    }
   });
 
   useEffect(() => {
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(events));
+    localStorage.setItem("events", JSON.stringify(events));
   }, [events]);
 
   return { events, setEvents };

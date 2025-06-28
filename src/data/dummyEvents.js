@@ -54,4 +54,15 @@ export const dummyEvents = [
     bookmarked: false,
     attending: false,
   },
+  {
+    id: "e6",
+    title: "Quantum Entanglement",
+    date: "2025-09-01T09:30:00",
+    location: "Bangalore, India",
+    type: "online",
+    category: "Webinar",
+    description: "Learn complex Quantum Computing topics.",
+    bookmarked: false,
+    attending: false,
+  },
 ];
