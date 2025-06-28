@@ -9,12 +9,65 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #002a08;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.react-calendar__tile.event-date {
+  background: #2563eb; /* Tailwind blue-600 */
+  color: white;
+  font-weight: bold;
+  border-radius: 0.5rem;
+}
+
+/* Base calendar styling */
+.calendar-wrapper .react-calendar {
+  background-color: #000;
+  color: #f0f0f0;
+  border: none;
+  border-radius: 0.5rem;
+}
+
+/* Header */
+.calendar-wrapper .react-calendar__navigation {
+  background-color: #000;
+  color: white;
+}
+
+.calendar-wrapper .react-calendar__navigation button {
+  color: white;
+}
+
+.calendar-wrapper .react-calendar__month-view__weekdays {
+  background-color: #111;
+  color: #ccc;
+}
+
+/* Tiles (days) */
+.calendar-wrapper .react-calendar__tile {
+  background-color: transparent;
+  color: #eee;
+}
+
+.calendar-wrapper .react-calendar__tile:enabled:hover {
+  background-color: #222;
+}
+
+.calendar-wrapper .react-calendar__tile--active {
+  background-color: #2563eb !important; /* Tailwind blue-600 */
+  color: white !important;
+}
+
+/* Optional: event date highlight */
+.calendar-wrapper .react-calendar__tile.event-date {
+  background-color: #2563eb;
+  color: white;
+  font-weight: bold;
+  border-radius: 0.5rem;
 }
 
 a {

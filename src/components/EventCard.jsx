@@ -13,9 +13,9 @@ export default function EventCard({ event, onBookmark, onAttend }) {
   } = event;
 
   return (
-    <div className="bg-white shadow-md rounded-xl p-4 w-full max-w-md mx-auto hover:shadow-lg transition duration-200 border border-gray-100">
-      <h2 className="text-xl font-semibold text-blue-700 mb-1">{title}</h2>
-      <p className="text-sm text-gray-500 mb-2">
+    <div className="bg-[#bdaeae] shadow-md rounded-xl p-4 w-full max-w-md mx-auto hover:shadow-lg transition duration-200 border border-gray-100">
+      <h2 className="text-xl font-semibold text-black mb-1">{title}</h2>
+      <p className="text-sm text-gray-700 mb-2">
         {new Date(date).toLocaleString()}
       </p>
       <p className="text-sm text-gray-600 mb-1">
@@ -27,7 +27,7 @@ export default function EventCard({ event, onBookmark, onAttend }) {
       <p className="text-sm text-gray-600 mb-2">
         <strong>Category:</strong> {category}
       </p>
-      <p className="text-gray-700 mb-3">{description}</p>
+      <p className="text-[#4a191c] mb-3">{description}</p>
 
       <div className="flex gap-2">
         <button
