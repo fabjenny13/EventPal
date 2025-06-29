@@ -5,6 +5,7 @@ import Bookmarked from "./pages/Bookmarked";
 import CalendarView from "./pages/Calendar";
 import { set } from "react-hook-form";
 import { useState, useEffect } from "react";
+import "./index.css";
 
 function App() {
   const [events, setEvents] = useState([]);
@@ -20,19 +21,17 @@ function App() {
   }, []);
 
   return (
-    <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route
-            path="/create"
-            element={<CreateEvent events={events} setEvents={setEvents} />}
-          />
-          <Route path="/bookmarked" element={<Bookmarked />} />
-          <Route path="/calendar" element={<CalendarView />} />
-        </Routes>
-      </BrowserRouter>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route
+          path="/create"
+          element={<CreateEvent events={events} setEvents={setEvents} />}
+        />
+        <Route path="/bookmarked" element={<Bookmarked />} />
+        <Route path="/calendar" element={<CalendarView />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

@@ -1,8 +1,25 @@
+import Navbar from "../components/Navbar";
+
 import EventCard from "../components/EventCard";
 import { useEvents } from "../hooks/useEvents";
+import FilterBar from "../components/Filterbar";
+import { useState, useEffect } from "react";
+import filterEvents from "../hooks/filterEvents";
 
 export default function Home() {
   const { events, setEvents } = useEvents();
+  const [filters, setFilters] = useState({ type: "", date: "", category: "" });
+  const [filteredEvents, setFilteredEvents] = useState(events);
+
+  useEffect(() => {
+    const updated = filterEvents(events, filters);
+    setFilteredEvents(updated);
+  }, [filters, events]);
+
+  const handleFilterChange = (newFilters) => {
+    setFilters(newFilters);
+    console.log(newFilters);
+  };
 
   const handleBookmark = (id) => {
     setEvents((prev) =>
@@ -17,10 +34,15 @@ export default function Home() {
   };
 
   return (
-    <>
+    <div className=" w-screen justify-center flex flex-col">
       <h1 className="justify-center text-bold flex">Discover</h1>
+      <Navbar />
+      <div className="flex justify-center w-full py-4">
+        <FilterBar onFilterChange={handleFilterChange} />
+      </div>
+
       <div className="p-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {events.map((event) => (
+        {filteredEvents.map((event) => (
           <EventCard
             key={event.id}
             event={event}
@@ -29,6 +51,6 @@ export default function Home() {
           />
         ))}
       </div>
-    </>
+    </div>
   );
 }
