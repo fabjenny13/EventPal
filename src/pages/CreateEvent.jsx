@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Navbar from "../components/Navbar";
 
 const CreateEvent = ({ events, setEvents }) => {
   const navigate = useNavigate();
@@ -35,10 +36,11 @@ const CreateEvent = ({ events, setEvents }) => {
   };
 
   return (
-    <div className="min-h-screen w-screen flex items-center justify-center">
+    <div className="mt-10 mb-10  flex flex-col justify-center">
+      <Navbar />
       <form
         onSubmit={handleSubmit}
-        className="w-full max-w-xl text-gray-700 p-6 bg-[#65b87a] shadow-md rounded-lg space-y-4"
+        className="mt-10 w-full max-w-xl text-gray-700 p-6 bg-[#65b87a] shadow-md rounded-lg space-y-4"
       >
         <h2 className="text-2xl font-semibold">Create New Event</h2>
 

@@ -65,7 +65,7 @@
 }
 
 .calendar-wrapper .react-calendar__tile--active {
-  background-color: #2563eb !important; /* Tailwind blue-600 */
+  background-color: #7e7e7e !important;
   color: white !important;
 }
 
@@ -75,6 +75,11 @@
   color: white;
   font-weight: bold;
   border-radius: 0.5rem;
+}
+
+.react-calendar__tile.event-attending {
+  background-color: #979200 !important; /* Tailwind blue-700 */
+  color: white !important;
 }
 
 a {

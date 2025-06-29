@@ -3,6 +3,7 @@ import { useState } from "react";
 import Calendar from "react-calendar";
 import { useEvents } from "../hooks/useEvents";
 import "react-calendar/dist/Calendar.css";
+import Navbar from "../components/Navbar";
 
 export default function CalendarView() {
   const { events } = useEvents();
@@ -23,24 +24,54 @@ export default function CalendarView() {
     return `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`;
   });
 
+  const attendingDates = events
+    .filter((e) => e.attending) // 👈 only those attending
+    .map((e) => {
+      const d = new Date(e.date);
+      return `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`; // ✅ adjust month
+    });
+
   return (
-    <div className="flex flex-row lg:flex-row gap-6 p-6">
-      <h1>Calendar</h1>
-      <div className="w-full lg:w-1/2 calendar-wrapper bg-black ">
+    <div className="flex flex-col justify-center h-screen w-screen">
+      <h1 className="justify-center text-bold flex mb-10">Calendar</h1>
+      <Navbar />
+
+      <div className="mt-10 flex gap-4 p-4 bg-black rounded shadow border color-white text-sm">
+        <div className="flex items-center gap-2">
+          <div className="w-4 h-4 rounded-full bg-[#2563eb] border" />
+          <span>Event Date</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <div className="w-4 h-4 rounded-full bg-[#979200] border" />
+          <span>You're Attending</span>
+        </div>
+      </div>
+
+      <div className="mt-10 w-full flex justify-center calendar-wrapper mb-5 ">
         <Calendar
           onChange={setSelectedDate}
           value={selectedDate}
           tileClassName={({ date, view }) => {
             if (view === "month") {
-              const d = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`;
-              return eventDates.includes(d) ? "event-date" : null;
+              const formatted = `${date.getFullYear()}-${
+                date.getMonth() + 1
+              }-${date.getDate()}`;
+
+              const isEventDate = eventDates.includes(formatted);
+              const isAttendingDate = attendingDates.includes(formatted);
+
+              let className = "";
+              if (isEventDate) className += " event-date";
+              if (isAttendingDate) className += " event-attending";
+
+              return className.trim() || null;
             }
           }}
         />
       </div>
 
-      <div className="w-full lg:w-1/2">
-        <h2 className="text-xl font-semibold mb-2">
+      <div className="w-full flex justify-center ">
+        <h2 className="text-xl font-semibold p-10">
           Events on {selectedDate.toDateString()}
         </h2>
         {eventsOnDate.length === 0 ? (

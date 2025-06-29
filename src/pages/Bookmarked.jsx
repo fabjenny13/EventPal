@@ -1,6 +1,7 @@
 import { useEvents } from "../hooks/useEvents";
 import { useState, useEffect } from "react";
 import EventCard from "../components/EventCard";
+import Navbar from "../components/Navbar";
 
 export default function Bookmarked() {
   const { events, setEvents } = useEvents();
@@ -26,8 +27,11 @@ export default function Bookmarked() {
 
   return (
     <div className="flex flex-col justify-center h-screen w-screen">
-      <h1 className="justify-center text-bold flex">My Bookmarked Events</h1>
-      <div className="p-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <h1 className="justify-center text-bold flex mb-10">
+        My Bookmarked Events
+      </h1>
+      <Navbar />
+      <div className="p-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
         {bookmarked.map((event) => (
           <EventCard
             key={event.id}
