@@ -40,7 +40,7 @@ export default function Navbar() {
 
         {/* Desktop Nav */}
         <div className="hidden lg:flex gap-8 text-sm font-medium">
-          <NavLink to="/" className="hover:text-blue-400">
+          <NavLink to="/discover" className="hover:text-blue-400">
             Discover
           </NavLink>
           <NavLink to="/create" className="hover:text-blue-400">

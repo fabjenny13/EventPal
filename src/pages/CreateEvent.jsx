@@ -61,7 +61,7 @@ const CreateEvent = ({ events, setEvents }) => {
       <h1 className="mt-12 justify-center text-bold flex">Create An Event</h1>
       <form
         onSubmit={handleSubmit}
-        className="mt-5 w-[90%] sm:w-[70%] lg:w-[50%] text-gray-700 p-6 bg-[#32a87d] shadow-md rounded-lg space-y-4"
+        className="mt-5 w-[90%] sm:w-[70%] lg:w-[50%] text-gray-700 p-6 bg-[#806f58] shadow-md rounded-lg space-y-4"
       >
         <h2 className="text-2xl font-semibold">Create New Event</h2>
 
@@ -71,7 +71,7 @@ const CreateEvent = ({ events, setEvents }) => {
             placeholder="Event Title"
             value={form.title}
             onChange={handleChange}
-            className="w-full border text-gray-400 bg-[#002a08] px-4 py-2 rounded"
+            className="w-full border text-gray-400 px-4 py-2 rounded"
           />
           {errors.title && (
             <p className="text-red-500 text-sm mt-1">{errors.title}</p>
@@ -84,7 +84,7 @@ const CreateEvent = ({ events, setEvents }) => {
             name="date"
             value={form.date}
             onChange={handleChange}
-            className="w-full border text-gray-400 bg-[#002a08] px-4 py-2 rounded"
+            className="w-full border text-gray-400 px-4 py-2 rounded"
           />
           {errors.date && (
             <p className="text-red-500 text-sm mt-1">{errors.date}</p>
@@ -97,7 +97,7 @@ const CreateEvent = ({ events, setEvents }) => {
             placeholder="Location"
             value={form.location}
             onChange={handleChange}
-            className="w-full border text-gray-400 bg-[#002a08] px-4 py-2 rounded"
+            className="w-full border text-gray-400 px-4 py-2 rounded"
           />
           {errors.location && (
             <p className="text-red-500 text-sm mt-1">{errors.location}</p>
@@ -108,7 +108,7 @@ const CreateEvent = ({ events, setEvents }) => {
           name="type"
           value={form.type}
           onChange={handleChange}
-          className="w-full border text-gray-400 bg-[#002a08] px-4 py-2 rounded"
+          className="w-full border text-gray-400  px-4 py-2 rounded"
         >
           <option value="offline">Offline</option>
           <option value="online">Online</option>
@@ -118,7 +118,7 @@ const CreateEvent = ({ events, setEvents }) => {
           name="category"
           value={form.category}
           onChange={handleChange}
-          className="w-full border text-gray-400 bg-[#002a08] px-4 py-2 rounded"
+          className="w-full border text-gray-400 px-4 py-2 rounded"
         >
           <option>Workshop</option>
           <option>Webinar</option>
@@ -131,13 +131,13 @@ const CreateEvent = ({ events, setEvents }) => {
           placeholder="Description"
           value={form.description}
           onChange={handleChange}
-          className="w-full border text-gray-400 bg-[#002a08] px-4 py-2 rounded resize-none"
+          className="w-full border text-gray-400 = px-4 py-2 rounded resize-none"
           rows={4}
         />
 
         <button
           type="submit"
-          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+          className="bg-black text-white px-4 py-2 rounded hover:bg-blue-700"
         >
           Create Event
         </button>
