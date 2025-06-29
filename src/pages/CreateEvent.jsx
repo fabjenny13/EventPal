@@ -41,7 +41,7 @@ const CreateEvent = ({ events, setEvents }) => {
     const newEvent = {
       id: Date.now().toString(),
       ...form,
-      bookmarked: true,
+      bookmarked: false,
       attending: true,
     };
 
@@ -49,7 +49,7 @@ const CreateEvent = ({ events, setEvents }) => {
     setEvents(updatedEvents);
     localStorage.setItem("events", JSON.stringify(updatedEvents));
 
-    navigate("/"); // Redirect after successful creation
+    navigate("/my-events"); // Redirect after successful creation
   };
 
   return (
@@ -58,12 +58,10 @@ const CreateEvent = ({ events, setEvents }) => {
         <Navbar />
       </div>
 
-      <h1 className="mt-12 justify-center text-bold flex text-white">
-        Create An Event
-      </h1>
+      <h1 className="mt-12 justify-center text-bold flex">Create An Event</h1>
       <form
         onSubmit={handleSubmit}
-        className="mt-5 w-[90%] sm:w-[70%] lg:w-[50%] text-gray-700 p-6 bg-[#65b87a] shadow-md rounded-lg space-y-4"
+        className="mt-5 w-[90%] sm:w-[70%] lg:w-[50%] text-gray-700 p-6 bg-[#32a87d] shadow-md rounded-lg space-y-4"
       >
         <h2 className="text-2xl font-semibold">Create New Event</h2>
 

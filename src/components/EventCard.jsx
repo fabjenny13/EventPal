@@ -13,7 +13,7 @@ export default function EventCard({ event, onBookmark, onAttend }) {
   } = event;
 
   return (
-    <div className="bg-[#b5f7bc] shadow-md rounded-xl p-4 w-full max-w-md mx-auto hover:shadow-lg transition duration-200 border border-gray-100">
+    <div className="bg-[#d1d0b4] shadow-md rounded-xl p-4 w-full max-w-md mx-auto hover:shadow-2xl transition duration-200 ">
       <h2 className="text-xl font-semibold text-black mb-1">{title}</h2>
       <p className="text-sm text-gray-700 mb-2">
         {new Date(date).toLocaleString()}

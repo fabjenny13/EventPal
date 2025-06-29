@@ -7,6 +7,7 @@ import { set } from "react-hook-form";
 import { useState, useEffect } from "react";
 import "./index.css";
 import MyEvents from "./pages/MyEvents";
+import LandingPage from "./pages/LandingPage";
 
 function App() {
   const [events, setEvents] = useState([]);
@@ -24,7 +25,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/discover" element={<Home />} />
         <Route
           path="/create"
           element={<CreateEvent events={events} setEvents={setEvents} />}

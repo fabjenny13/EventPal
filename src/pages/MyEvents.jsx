@@ -32,7 +32,7 @@ export default function MyEvents() {
         <Navbar />
       </div>
 
-      <h1 className=" mt-20 justify-center text-bold flex">Attending</h1>
+      <h1 className=" mt-20 justify-center text-bold flex">My Events</h1>
 
       <NavLink className="justify-center text-2xl flex" to="/bookmarked">
         Go to Bookmarks

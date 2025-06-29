@@ -35,9 +35,7 @@ export default function CalendarView() {
       <div className="fixed top-0 left-0 w-full z-50 bg-black">
         <Navbar />
       </div>
-      <h1 className="mt-20 justify-center text-bold flex text-white">
-        Calendar
-      </h1>
+      <h1 className="mt-20 justify-center text-bold flex">Calendar</h1>
 
       {/* Body padding for fixed header */}
       <div className="mt-5 w-full max-w-5xl px-4 mx-auto">
