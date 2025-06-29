@@ -55,15 +55,15 @@ const CreateEvent = ({ events, setEvents }) => {
   return (
     <div className="mt-10 mb-10 w-screen flex flex-col items-center">
       <div className="fixed top-0 left-0 w-full z-50 bg-black">
-        <h1 className="justify-center text-bold flex text-white py-4">
-          Create An Event
-        </h1>
         <Navbar />
       </div>
 
+      <h1 className="mt-12 justify-center text-bold flex text-white">
+        Create An Event
+      </h1>
       <form
         onSubmit={handleSubmit}
-        className="mt-32 w-[90%] sm:w-[50%] text-gray-700 p-6 bg-[#65b87a] shadow-md rounded-lg space-y-4"
+        className="mt-5 w-[90%] sm:w-[70%] lg:w-[50%] text-gray-700 p-6 bg-[#65b87a] shadow-md rounded-lg space-y-4"
       >
         <h2 className="text-2xl font-semibold">Create New Event</h2>
 

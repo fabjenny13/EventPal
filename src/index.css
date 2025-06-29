@@ -32,6 +32,17 @@
 }
 
 /* Base calendar styling */
+.calendar-wrapper {
+  width: 100%;
+  padding: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .calendar-wrapper {
+    padding: 2rem;
+  }
+}
+
 .calendar-wrapper .react-calendar {
   background-color: #000;
   color: #f0f0f0;

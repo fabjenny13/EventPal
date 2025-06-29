@@ -36,10 +36,12 @@ export default function Home() {
   return (
     <div className=" w-screen justify-center flex flex-col">
       <div className="fixed top-0 left-0 w-full z-50 bg-black">
-        <h1 className="bg-black justify-center text-bold flex">Discover</h1>
         <Navbar />
       </div>
-      <div className="flex justify-center w-full py-4">
+
+      <h1 className=" mt-20 justify-center text-bold flex">Discover</h1>
+
+      <div className="mt-5 flex justify-center w-full py-4">
         <FilterBar onFilterChange={handleFilterChange} />
       </div>
 
