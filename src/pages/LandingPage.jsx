@@ -10,7 +10,7 @@ export default function LandingPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#8AB382] w-screen flex flex-col items-center justify-center text-black font-sans">
+    <div className="min-h-screen w-screen bg-[#8AB382] flex flex-col items-center justify-center text-black font-sans">
       <header className="absolute top-0 left-0 w-full flex justify-between items-center p-6 bg-black text-white shadow-md">
         <h1 className="text-2xl font-bold">Event Planner</h1>
       </header>
@@ -32,7 +32,7 @@ export default function LandingPage() {
       </main>
 
       <footer className="absolute bottom-4 text-gray-800 text-sm">
-        © {new Date().getFullYear()} EventPal. All rights reserved.
+        © {new Date().getFullYear()} Event Planner. All rights reserved.
       </footer>
     </div>
   );
