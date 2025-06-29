@@ -41,8 +41,8 @@ const CreateEvent = ({ events, setEvents }) => {
     const newEvent = {
       id: Date.now().toString(),
       ...form,
-      bookmarked: false,
-      attending: false,
+      bookmarked: true,
+      attending: true,
     };
 
     const updatedEvents = [...events, newEvent];

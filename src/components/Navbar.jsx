@@ -46,8 +46,8 @@ export default function Navbar() {
           <NavLink to="/create" className="hover:text-blue-400">
             Create An Event
           </NavLink>
-          <NavLink to="/bookmarked" className="hover:text-blue-400">
-            My Bookmarked Events
+          <NavLink to="/my-events" className="hover:text-blue-400">
+            My Events
           </NavLink>
           <NavLink to="/calendar" className="hover:text-blue-400">
             Calendar

@@ -4,10 +4,10 @@ import EventCard from "../components/EventCard";
 import Navbar from "../components/Navbar";
 import { NavLink } from "react-router-dom";
 
-export default function Bookmarked() {
+export default function MyEvents() {
   const { events, setEvents } = useEvents();
 
-  const [bookmarked, setBookmarked] = useState([{}]);
+  const [attending, setAttending] = useState([{}]);
 
   const handleBookmark = (id) => {
     setEvents((prev) =>
@@ -22,8 +22,8 @@ export default function Bookmarked() {
   };
 
   useEffect(() => {
-    const filtered = events.filter((e) => e.bookmarked);
-    setBookmarked(filtered);
+    const filtered = events.filter((e) => e.attending);
+    setAttending(filtered);
   }, [events]);
 
   return (
@@ -32,16 +32,14 @@ export default function Bookmarked() {
         <Navbar />
       </div>
 
-      <h1 className=" mt-20 justify-center text-bold flex">
-        My Bookmarked Events
-      </h1>
+      <h1 className=" mt-20 justify-center text-bold flex">Attending</h1>
 
-      <NavLink className="justify-center text-2xl flex" to="/my-events">
-        Go to Attending
+      <NavLink className="justify-center text-2xl flex" to="/bookmarked">
+        Go to Bookmarks
       </NavLink>
 
       <div className="p-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {bookmarked.map((event) => (
+        {attending.map((event) => (
           <EventCard
             key={event.id}
             event={event}

@@ -6,6 +6,7 @@ import CalendarView from "./pages/Calendar";
 import { set } from "react-hook-form";
 import { useState, useEffect } from "react";
 import "./index.css";
+import MyEvents from "./pages/MyEvents";
 
 function App() {
   const [events, setEvents] = useState([]);
@@ -30,6 +31,7 @@ function App() {
         />
         <Route path="/bookmarked" element={<Bookmarked />} />
         <Route path="/calendar" element={<CalendarView />} />
+        <Route path="/my-events" element={<MyEvents />} />
       </Routes>
     </BrowserRouter>
   );
