@@ -35,8 +35,10 @@ export default function Home() {
 
   return (
     <div className=" w-screen justify-center flex flex-col">
-      <h1 className="justify-center text-bold flex">Discover</h1>
-      <Navbar />
+      <div className="fixed top-0 left-0 w-full z-50 bg-black">
+        <h1 className="bg-black justify-center text-bold flex">Discover</h1>
+        <Navbar />
+      </div>
       <div className="flex justify-center w-full py-4">
         <FilterBar onFilterChange={handleFilterChange} />
       </div>

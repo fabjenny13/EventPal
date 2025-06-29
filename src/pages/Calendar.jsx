@@ -33,10 +33,12 @@ export default function CalendarView() {
 
   return (
     <div className="flex flex-col justify-center h-screen w-screen">
-      <h1 className="justify-center text-bold flex mb-10">Calendar</h1>
-      <Navbar />
+      <div className="fixed top-0 left-0 w-full z-50 bg-black">
+        <h1 className="bg-black justify-center text-bold flex">Calendar</h1>
+        <Navbar />
+      </div>
 
-      <div className="mt-10 flex gap-4 p-4 bg-black rounded shadow border color-white text-sm">
+      <div className="mt-10 flex gap-4 p-4 color-white text-sm">
         <div className="flex items-center gap-2">
           <div className="w-4 h-4 rounded-full bg-[#2563eb] border" />
           <span>Event Date</span>

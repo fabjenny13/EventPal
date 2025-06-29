@@ -27,10 +27,12 @@ export default function Bookmarked() {
 
   return (
     <div className="flex flex-col justify-center h-screen w-screen">
-      <h1 className="justify-center text-bold flex mb-10">
-        My Bookmarked Events
-      </h1>
-      <Navbar />
+      <div className="fixed top-0 left-0 w-full z-50 bg-black">
+        <h1 className="bg-black justify-center text-bold flex">
+          My Bookmarked Events
+        </h1>
+        <Navbar />
+      </div>
       <div className="p-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
         {bookmarked.map((event) => (
           <EventCard

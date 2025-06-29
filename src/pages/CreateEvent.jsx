@@ -14,12 +14,29 @@ const CreateEvent = ({ events, setEvents }) => {
     description: "",
   });
 
+  const [errors, setErrors] = useState({});
+
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setForm({ ...form, [name]: value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Validate fields
+    const newErrors = {};
+    if (!form.title.trim()) newErrors.title = "Title is required";
+    if (!form.date) newErrors.date = "Date and time are required";
+    if (!form.location.trim()) newErrors.location = "Location is required";
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
+    // No validation errors
+    setErrors({});
 
     const newEvent = {
       id: Date.now().toString(),
@@ -32,44 +49,62 @@ const CreateEvent = ({ events, setEvents }) => {
     setEvents(updatedEvents);
     localStorage.setItem("events", JSON.stringify(updatedEvents));
 
-    navigate("/"); // redirect to homepage or event list
+    navigate("/"); // Redirect after successful creation
   };
 
   return (
-    <div className="mt-10 mb-10  flex flex-col justify-center">
-      <Navbar />
+    <div className="mt-10 mb-10 w-screen flex flex-col items-center">
+      <div className="fixed top-0 left-0 w-full z-50 bg-black">
+        <h1 className="justify-center text-bold flex text-white py-4">
+          Create An Event
+        </h1>
+        <Navbar />
+      </div>
+
       <form
         onSubmit={handleSubmit}
-        className="mt-10 w-full max-w-xl text-gray-700 p-6 bg-[#65b87a] shadow-md rounded-lg space-y-4"
+        className="mt-32 w-[90%] sm:w-[50%] text-gray-700 p-6 bg-[#65b87a] shadow-md rounded-lg space-y-4"
       >
         <h2 className="text-2xl font-semibold">Create New Event</h2>
 
-        <input
-          name="title"
-          placeholder="Event Title"
-          value={form.title}
-          onChange={handleChange}
-          className="w-full border text-gray-400 bg-[#002a08] px-4 py-2 rounded"
-          required
-        />
+        <div>
+          <input
+            name="title"
+            placeholder="Event Title"
+            value={form.title}
+            onChange={handleChange}
+            className="w-full border text-gray-400 bg-[#002a08] px-4 py-2 rounded"
+          />
+          {errors.title && (
+            <p className="text-red-500 text-sm mt-1">{errors.title}</p>
+          )}
+        </div>
 
-        <input
-          type="datetime-local"
-          name="date"
-          value={form.date}
-          onChange={handleChange}
-          className="w-full border text-gray-400 bg-[#002a08] px-4 py-2 rounded"
-          required
-        />
+        <div>
+          <input
+            type="datetime-local"
+            name="date"
+            value={form.date}
+            onChange={handleChange}
+            className="w-full border text-gray-400 bg-[#002a08] px-4 py-2 rounded"
+          />
+          {errors.date && (
+            <p className="text-red-500 text-sm mt-1">{errors.date}</p>
+          )}
+        </div>
 
-        <input
-          name="location"
-          placeholder="Location"
-          value={form.location}
-          onChange={handleChange}
-          className="w-full border text-gray-400 bg-[#002a08] px-4 py-2 rounded"
-          required
-        />
+        <div>
+          <input
+            name="location"
+            placeholder="Location"
+            value={form.location}
+            onChange={handleChange}
+            className="w-full border text-gray-400 bg-[#002a08] px-4 py-2 rounded"
+          />
+          {errors.location && (
+            <p className="text-red-500 text-sm mt-1">{errors.location}</p>
+          )}
+        </div>
 
         <select
           name="type"
