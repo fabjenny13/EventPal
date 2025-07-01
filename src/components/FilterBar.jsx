@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function FilterBar({ onFilterChange }) {
   const [type, setType] = useState("");
@@ -9,6 +9,10 @@ export default function FilterBar({ onFilterChange }) {
   const handleFilterChange = () => {
     onFilterChange({ type, date, category });
   };
+
+  useEffect(() => {
+    handleFilterChange();
+  }, [type, date, category]);
 
   return (
     <div className="sm:w-[20%] max-w-4xl px-4">
@@ -44,7 +48,6 @@ export default function FilterBar({ onFilterChange }) {
             value={type}
             onChange={(e) => {
               setType(e.target.value);
-              handleFilterChange();
             }}
           >
             <option value="">All Types</option>
@@ -58,7 +61,6 @@ export default function FilterBar({ onFilterChange }) {
             value={date}
             onChange={(e) => {
               setDate(e.target.value);
-              handleFilterChange();
             }}
           >
             <option value="">Any Date</option>
@@ -73,7 +75,6 @@ export default function FilterBar({ onFilterChange }) {
             value={category}
             onChange={(e) => {
               setCategory(e.target.value);
-              handleFilterChange();
             }}
           >
             <option value="">All Categories</option>
