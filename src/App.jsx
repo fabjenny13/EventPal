@@ -4,23 +4,13 @@ import CreateEvent from "./pages/CreateEvent";
 import Bookmarked from "./pages/Bookmarked";
 import CalendarView from "./pages/Calendar";
 import { set } from "react-hook-form";
-import { useState, useEffect } from "react";
 import "./index.css";
 import MyEvents from "./pages/MyEvents";
 import LandingPage from "./pages/LandingPage";
+import { useEvents } from "./hooks/useEvents";
 
 function App() {
-  const [events, setEvents] = useState([]);
-
-  useEffect(() => {
-    const stored = localStorage.getItem("events");
-    if (stored) {
-      setEvents(JSON.parse(stored));
-    } else {
-      setEvents(dummyEvents);
-      localStorage.setItem("events", JSON.stringify(dummyEvents));
-    }
-  }, []);
+  const { events, setEvents } = useEvents();
 
   return (
     <BrowserRouter basename="/EventPal">
