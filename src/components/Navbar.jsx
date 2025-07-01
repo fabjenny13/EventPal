@@ -58,14 +58,14 @@ export default function Navbar() {
       {/* Mobile Nav */}
       {isOpen && (
         <div className="flex flex-col mt-4 gap-3 lg:hidden">
-          <NavLink to="/" onClick={() => setIsOpen(false)}>
+          <NavLink to="/discover" onClick={() => setIsOpen(false)}>
             Discover
           </NavLink>
           <NavLink to="/create" onClick={() => setIsOpen(false)}>
             Create An Event
           </NavLink>
-          <NavLink to="/bookmarked" onClick={() => setIsOpen(false)}>
-            My Bookmarked Events
+          <NavLink to="/my-events" onClick={() => setIsOpen(false)}>
+            My Events
           </NavLink>
           <NavLink to="/calendar" onClick={() => setIsOpen(false)}>
             Calendar

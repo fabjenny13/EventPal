@@ -78,10 +78,10 @@ export default function FilterBar({ onFilterChange }) {
             }}
           >
             <option value="">All Categories</option>
-            <option value="music">Music</option>
-            <option value="tech">Tech</option>
-            <option value="art">Art</option>
-            <option value="business">Business</option>
+            <option value="Webinar">Webinar</option>
+            <option value="Meetup">Meetup</option>
+            <option value="Workshop">Workshop</option>
+            <option value="Conference">Conference</option>
           </select>
         </div>
       )}
