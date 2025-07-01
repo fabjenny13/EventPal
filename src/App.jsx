@@ -23,7 +23,7 @@ function App() {
   }, []);
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/EventPal">
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/discover" element={<Home />} />
